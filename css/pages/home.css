@@ -160,6 +160,10 @@
   .craft-visual { order: 2; }
   .craft-copy { border-left: 0; padding: 0; }
   .mini-metrics { grid-template-columns: 1fr; }
+  .mini-metrics span {
+    justify-items: center;
+    text-align: center;
+  }
 }
 @media (max-width: 560px) {
   .trust-strip__inner { grid-template-columns: 1fr; }
