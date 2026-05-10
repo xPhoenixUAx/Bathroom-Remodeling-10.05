@@ -1,0 +1,8 @@
+.legal-body {
+  max-width: 860px;
+}
+.legal-body section {
+  padding: 1.55rem 0;
+  border-top: 1px solid var(--line);
+}
+.legal-body h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 0.65rem; }

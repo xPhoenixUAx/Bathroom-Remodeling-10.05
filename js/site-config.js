@@ -1,0 +1,21 @@
+window.SITE_CONFIG = {
+  companyName: "BathWorks Collective",
+  companyLegalName: "BathWorks Collective LLC",
+  companyId: "Licensed Aggregator Network ID: BWC-2026-418",
+  phone: "+18885550138",
+  phoneDisplay: "(888) 555-0138",
+  phoneButtonLabel: "Call a Bath Specialist",
+  email: "hello@bathworkscollective.com",
+  addressLine1: "350 Harbor Stone Ave",
+  addressLine2: "Suite 410, Chicago, IL 60601",
+  serviceArea: "Serving homeowners through vetted bathroom remodeling partners across major U.S. metro areas",
+  businessHours: "Mon-Fri 8:00 AM-7:00 PM, Sat 9:00 AM-3:00 PM",
+  footerTextPrimary: "Premium bathroom remodeling guidance, project matching, and partner coordination.",
+  footerTextSecondary: "Independent remodelers in the network provide estimates, contracts, workmanship, warranties, and local licensing.",
+  disclaimerShort: "BathWorks Collective is a bathroom remodeling aggregator and project-matching platform. Services are delivered by independent local partners.",
+  disclaimerFull: "BathWorks Collective LLC operates as an aggregator and referral platform for bathroom remodeling projects. We help homeowners organize scope, compare project paths, and connect with independent remodeling providers. Availability, pricing, timelines, financing, warranty coverage, and licensing vary by market and contractor. Always review the local provider's written estimate, license details, insurance documentation, and contract terms before authorizing work.",
+  footerDisclaimerLegal: "Disclaimer: This site is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and this site does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on this site.",
+  copyrightLine: "BathWorks Collective. All rights reserved.",
+  ctaPrimary: "Plan My Bathroom Remodel",
+  ctaSecondary: "Compare Service Options"
+};
