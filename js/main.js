@@ -114,12 +114,61 @@
     items.forEach((item) => observer.observe(item));
   }
 
+  function initFloatingCta() {
+    if (document.querySelector(".floating-cta")) return;
+    const cta = document.createElement("div");
+    cta.className = "floating-cta";
+    cta.innerHTML = `
+      <a class="floating-cta__call" data-phone-link href="tel:${config.phone || ""}" aria-label="Call ${config.companyName || "us"}">
+        <i data-lucide="phone"></i>
+        <span data-phone-text>${config.phoneDisplay || "Call"}</span>
+      </a>
+      <a class="floating-cta__project" href="contact.html">
+        <i data-lucide="clipboard-check"></i>
+        <span>${config.ctaPrimary || "Plan My Project"}</span>
+      </a>
+    `;
+    document.body.appendChild(cta);
+  }
+
+  function initCookieBanner() {
+    const storageKey = "bathworks_cookie_choice";
+    if (localStorage.getItem(storageKey)) return;
+
+    const banner = document.createElement("div");
+    banner.className = "cookie-banner";
+    banner.setAttribute("role", "dialog");
+    banner.setAttribute("aria-label", "Cookie preferences");
+    banner.innerHTML = `
+      <div class="cookie-banner__copy">
+        <strong>Cookie preferences</strong>
+        <p>We use cookies to keep the site functional, understand traffic, and improve project inquiry flows.</p>
+      </div>
+      <div class="cookie-banner__actions">
+        <a class="cookie-banner__link" href="cookie.html">Policy</a>
+        <button type="button" data-cookie-choice="declined">Decline</button>
+        <button type="button" data-cookie-choice="accepted">Accept</button>
+      </div>
+    `;
+    document.body.appendChild(banner);
+
+    banner.querySelectorAll("[data-cookie-choice]").forEach((button) => {
+      button.addEventListener("click", () => {
+        localStorage.setItem(storageKey, button.getAttribute("data-cookie-choice"));
+        banner.classList.add("is-hiding");
+        window.setTimeout(() => banner.remove(), 240);
+      });
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     hydrateConfig();
     initHeader();
     initMenu();
     initSmoothScroll();
     initReveal();
+    initFloatingCta();
+    initCookieBanner();
     if (window.lucide) window.lucide.createIcons({ strokeWidth: 1.75 });
   });
 })();
