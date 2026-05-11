@@ -6,6 +6,7 @@
     emailText: "[data-email-text]",
     companyId: "[data-company-id]",
     companyAddress: "[data-company-address]",
+    businessHours: "[data-business-hours]",
     footerPrimary: "[data-footer-text-primary]",
     footerSecondary: "[data-footer-text-secondary]",
     disclaimerShort: "[data-disclaimer-short]",
@@ -26,6 +27,7 @@
     setText(selectors.emailText, config.email);
     setText(selectors.companyId, config.companyId);
     setText(selectors.companyAddress, [config.addressLine1, config.addressLine2].filter(Boolean).join(", "));
+    setText(selectors.businessHours, config.businessHours);
     setText(selectors.footerPrimary, config.footerTextPrimary);
     setText(selectors.footerSecondary, config.footerTextSecondary);
     setText(selectors.disclaimerShort, config.disclaimerShort);
@@ -100,6 +102,32 @@
     });
   }
 
+  function initActiveLinks() {
+    const current = window.location.pathname.split("/").pop() || "index.html";
+    const servicePages = new Set([
+      "services.html",
+      "full-bathroom-remodeling.html",
+      "shower-tub-remodeling.html",
+      "tile-flooring.html",
+      "vanities-storage-lighting.html",
+      "accessible-bathrooms.html"
+    ]);
+
+    document.querySelectorAll('a[href$=".html"]').forEach((link) => {
+      const href = link.getAttribute("href").split("#")[0];
+      if (href === current) {
+        link.classList.add("is-active");
+        link.setAttribute("aria-current", "page");
+      }
+    });
+
+    if (servicePages.has(current)) {
+      document.querySelectorAll('.nav-dropdown__trigger[href="services.html"], .mobile-service-dropdown summary').forEach((item) => {
+        item.classList.add("is-active");
+      });
+    }
+  }
+
   function initReveal() {
     const items = document.querySelectorAll("[data-reveal]");
     if (!items.length || !("IntersectionObserver" in window)) return;
@@ -166,6 +194,7 @@
     initHeader();
     initMenu();
     initSmoothScroll();
+    initActiveLinks();
     initReveal();
     initFloatingCta();
     initCookieBanner();
